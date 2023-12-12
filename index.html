@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>AI Music Player</title>
+    <link rel="icon" type="image/x-icon" href="./public/image/favicon.ico" />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Helvetica", sans-serif; 
+      } 
+      main {
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        height: 85vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    
+    canvas {
+        position: absolute;
+    }
+    </style>
+  </head>
+  <body>
+    <nav style="background-color: #95c8d8; padding: 15px 0; width: 100vw;">
+      <div style="width: 80%; margin: 0 auto; height: 35px">
+        <ul
+          style="
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+          "
+        >
+          <li style="margin-right: 20px">
+            <a href="https://ai-music-player.vercel.app" style="text-decoration: none; color: #007bff">Home</a>
+          </li>
+          <li style="margin-right: 20px">
+            <a
+              href="/"
+              style="text-decoration: none; color: #007bff; font-weight: bold"
+              >AI Player</a
+            >
+          </li>
+          <li style="margin-right: 20px">
+            <a href="https://ai-music-player.vercel.app/application" style="text-decoration: none; color: #007bff"
+              >Applications</a
+            >
+          </li>
+          <li>
+            <a href="https://ai-music-player.vercel.app/about" style="text-decoration: none; color: #007bff"
+              >About</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <main>
+      <video id="video" width="720" height="560" autoplay muted></video>
+    </main>
+    <script defer src="face-api.min.js"></script>
+    <script defer src="script.js"></script>
+  </body>
+  </html>
