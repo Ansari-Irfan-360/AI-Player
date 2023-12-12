@@ -10,9 +10,8 @@
       body {
         margin: 0;
         padding: 0;
-        font-family: "Helvetica", sans-serif; 
-        background: #3865A2FF
-      } 
+        font-family: "Helvetica", sans-serif;
+      }
       main {
         margin: 0;
         padding: 0;
@@ -22,14 +21,37 @@
         justify-content: center;
         align-items: center;
       }
-    
-    canvas {
-        position: absolute;
-    }
+      
+      canvas {
+        position: fixed;
+      }
+      #videoElement{
+        padding: 5px;
+        border: 1px solid black;
+      }
+
+      #mainContent {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 90vh;
+      }
+
+      #SongsInput {
+        margin-left: 50px;
+      }
+
+      .mp3FileInput {
+        margin-bottom: 30px;
+      }
+      #videoStart{
+        margin-right: 90px;
+        border: 5px solid red;
+      }
     </style>
   </head>
   <body>
-    <nav style="background-color: #95c8d8; padding: 15px 0; width: 100vw;">
+    <nav style="background-color: #95c8d8; padding: 15px 0; width: 100vw">
       <div style="width: 80%; margin: 0 auto; height: 35px">
         <ul
           style="
@@ -43,7 +65,11 @@
           "
         >
           <li style="margin-right: 20px">
-            <a href="https://ai-music-player-360.vercel.app" style="text-decoration: none; color: #007bff">Home</a>
+            <a
+              href="https://ai-music-player-360.vercel.app"
+              style="text-decoration: none; color: #007bff"
+              >Home</a
+            >
           </li>
           <li style="margin-right: 20px">
             <a
@@ -53,22 +79,76 @@
             >
           </li>
           <li style="margin-right: 20px">
-            <a href="https://ai-music-player-360.vercel.app/application" style="text-decoration: none; color: #007bff"
+            <a
+              href="https://ai-music-player-360.vercel.app/application"
+              style="text-decoration: none; color: #007bff"
               >Applications</a
             >
           </li>
           <li>
-            <a href="https://ai-music-player-360.vercel.app/about" style="text-decoration: none; color: #007bff"
+            <a
+              href="https://ai-music-player-360.vercel.app/about"
+              style="text-decoration: none; color: #007bff"
               >About</a
             >
           </li>
         </ul>
       </div>
     </nav>
-    <main>
-      <video id="video" width="720" height="560" autoplay muted></video>
-    </main>
+    <div id="mainContent">
+      <div id="SongsInput">
+        <div class="mp3FileInput">
+          <input
+            type="file"
+            id="inputNeutral"
+            accept=".mp3"
+            onchange="handleNeutral()"
+          />
+          <h4 id="neutralTitle">Neutral : Lag Jaa Gale (Default)</h4>
+        </div>
+        <br />
+        <br>
+        <div class="mp3FileInput">
+          <input
+            type="file"
+            id="inputHappy"
+            accept=".mp3"
+            onchange="handleHappy()"
+          />
+          <h4 id="happyTitle">Happy : Badtameez Dil (Default)</h4>
+        </div>
+        <br />
+        <br>
+        <div class="mp3FileInput">
+          <input
+            type="file"
+            id="inputAngry"
+            accept=".mp3"
+            onchange="handleAngry()"
+          />
+          <h4 id="angryTitle">Angry : Bekhayali (Default)</h4>
+        </div>
+        <br />
+        <br>
+        <div class="mp3FileInput">
+          <input
+            type="file"
+            id="inputSad"
+            accept=".mp3"
+            onchange="handleSad()"
+          />
+          <h4 id="sadTitle">Sad : Tum Hi Ho (Default)</h4>
+        </div>
+      </div>
+      <main>
+        <div id="videoElement" >
+          <video id="video" width="720" height="560" autoplay muted></video>
+        </div>
+      </main>
+      <button id="videoStart" onclick="startVideo()">Start AI Music Player</button>
+    </div>
+
     <script defer src="face-api.min.js"></script>
     <script defer src="script.js"></script>
   </body>
-  </html>
+</html>
