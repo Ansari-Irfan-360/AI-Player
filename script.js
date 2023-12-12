@@ -33,7 +33,13 @@ function handleSad() {
   document.getElementById("sadTitle").innerHTML = `Sad : ${file.name}`;
 }
 
+var isStartVideoRunning = false;
 function startVideo() {
+  if (isStartVideoRunning) {
+    console.log("Function is already running.");
+    return;
+  }
+  isStartVideoRunning = true;
   document.getElementById("videoStart").style.borderColor="skyblue"
   const video = document.getElementById("video");
 
